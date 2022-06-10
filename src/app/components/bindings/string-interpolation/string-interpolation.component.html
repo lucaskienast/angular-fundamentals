@@ -1,0 +1,21 @@
+<p>{{ message }}</p>
+
+<p innerText="{{ message }}">
+  {{ message + 'This is extra' }}
+</p>
+
+<p>
+  {{ message + 'This is extra' }}
+</p>
+
+<p>
+  {{ 'This is created on the fly.' }}
+</p>
+
+<!--
+Do not make method calls in html file for performance reasons,
+since function will be called each time the page is rendered.
+-->
+<p>
+  {{ getMessage() }}
+</p>

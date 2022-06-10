@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'simplilearn-first-app';
+  title = 'angular-fundamentals';
+  counter = 0;
+  classToSet = 'positive';
+
+  onCounterChange(buttonType: string): void {
+    buttonType === "INC" ? this.counter++: this.counter--;
+    this.classToSet = this.counter >= 0 ? 'positive' : 'negative';
+  }
 }
