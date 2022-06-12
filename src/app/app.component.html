@@ -1,4 +1,4 @@
-<div class="styled">
+<!--<div class="styled">
   <h1>Hello from App Component</h1>
   <app-chat></app-chat>
   <app-users></app-users>
@@ -14,6 +14,16 @@
     <span [class]="classToSet">{{ counter }}</span>
   </p>
   <app-counter-actions
-    (counterChange)="onCounterChange($event)"
-  ></app-counter-actions>
+    [(counter)]="counter">
+  </app-counter-actions>
 </div>
+<hr>
+<input type="text" [(ngModel)]="title">
+<p>{{ title }}</p>
+<hr>
+<app-attribute-binding></app-attribute-binding>
+<app-class-binding></app-class-binding>
+<app-style-binding></app-style-binding>-->
+
+<app-header></app-header>
+<router-outlet></router-outlet>

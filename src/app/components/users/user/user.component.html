@@ -1,10 +1,18 @@
+<!--
 <div class="styled">
-  <p>user works!</p>
-  <div
-    [@openClose]="isOpen ? 'open' : 'closed'"
-    class="open-close-container"
-    (click)="toggle()"
-  >
-    <p>The box is now {{ isOpen ? 'open' : 'closed' }}</p>
-  </div>
+<div
+  [@openClose]="isOpen ? 'open' : 'closed'"
+  class="open-close-container"
+  (click)="toggle()"
+>
+  <p>The box is now {{ isOpen ? 'open' : 'closed' }}</p>
 </div>
+</div>
+-->
+
+<h3>User {{ user.id }}</h3>
+<ul>
+  <li>Username: {{ user.username }}</li>
+  <li>Name: {{ user.name }}</li>
+  <li>Email: {{ user.email }}</li>
+</ul>

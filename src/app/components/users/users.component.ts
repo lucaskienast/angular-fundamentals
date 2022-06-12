@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {IUser} from "../../interfaces/user";
+import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../../services/user/user.service";
 
 @Component({
   selector: 'app-users',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  users: Array<IUser>;
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private userService: UserService) {
+    this.users = this.userService.getUsers();
+  }
 
   ngOnInit(): void {
   }

@@ -10,8 +10,8 @@ export class AppComponent {
   counter = 0;
   classToSet = 'positive';
 
-  onCounterChange(buttonType: string): void {
-    buttonType === "INC" ? this.counter++: this.counter--;
+  onCounterChange(newCounter: number): void {
+    this.counter = newCounter;
     this.classToSet = this.counter >= 0 ? 'positive' : 'negative';
   }
 }

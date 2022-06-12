@@ -1,2 +1,14 @@
-<p>users works!</p>
-<app-user></app-user>
+<div class="container row">
+  <div class="col-md-4">
+    <h2>Users List</h2>
+    <ul class="list-group">
+      <li class="list-group item"
+          *ngFor="let user of users">
+        <app-user-row [user]="user"></app-user-row>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>

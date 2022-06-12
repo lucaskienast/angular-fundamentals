@@ -1,0 +1,12 @@
+<h2>Class Binding Example</h2>
+
+<div
+  class="bold curly red"
+  [class.highlight]="addHighlight"
+>
+  This is some text.
+</div>
+
+<button (click)="addHighlight = !addHighlight">
+  Add highlight to the text.
+</button>

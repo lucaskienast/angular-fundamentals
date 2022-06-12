@@ -15,6 +15,17 @@ import { PropertyBindingsComponent } from './components/bindings/property-bindin
 import { EventBindingComponent } from './components/bindings/event-binding/event-binding.component';
 import { CounterActionsComponent } from './components/counter-actions/counter-actions.component';
 import { HelloComponent } from './components/hello/hello.component';
+import {FormsModule} from "@angular/forms";
+import { AttributeBindingComponent } from './components/bindings/attribute-binding/attribute-binding.component';
+import { ClassBindingComponent } from './components/bindings/class-binding/class-binding.component';
+import { StyleBindingComponent } from './components/bindings/style-binding/style-binding.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserRowComponent } from './components/users/user-row/user-row.component';
+import { PlaceholderComponent } from './components/placeholder/placeholder.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +39,24 @@ import { HelloComponent } from './components/hello/hello.component';
     PropertyBindingsComponent,
     EventBindingComponent,
     CounterActionsComponent,
-    HelloComponent
+    HelloComponent,
+    AttributeBindingComponent,
+    ClassBindingComponent,
+    StyleBindingComponent,
+    HomeComponent,
+    AboutComponent,
+    BlogComponent,
+    HeaderComponent,
+    UserRowComponent,
+    PlaceholderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    NgbModule
   ],
   exports: [],
   providers: [],
