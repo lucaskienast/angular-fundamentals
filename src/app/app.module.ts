@@ -26,6 +26,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserRowComponent } from './components/users/user-row/user-row.component';
 import { PlaceholderComponent } from './components/placeholder/placeholder.component';
+import {UserService} from "./services/user/user.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -56,10 +58,11 @@ import { PlaceholderComponent } from './components/placeholder/placeholder.compo
     CoreModule,
     BrowserAnimationsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   exports: [],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

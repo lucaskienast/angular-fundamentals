@@ -10,14 +10,22 @@ import {UserService} from "../../services/user/user.service";
 })
 export class UsersComponent implements OnInit {
 
-  users: Array<IUser>;
+  users: Array<IUser> = [{
+    "id": 0,
+    "name": "",
+    "username": "",
+    "email": ""
+  }];
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService) {
-    this.users = this.userService.getUsers();
   }
 
   ngOnInit(): void {
+    this.userService.getUsersViaRest().subscribe(
+      users => this.users = users,
+      error => console.log("Error while fetching users: " + error)
+    );
   }
 
 }

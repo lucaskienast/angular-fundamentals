@@ -37,28 +37,28 @@ export class UserComponent implements OnInit {
   isOpen = true;
 
   user: IUser = {
-    "id": 1,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz"
+    "id": 0,
+    "name": "",
+    "username": "",
+    "email": ""
   };
 
-  users: Array<IUser>;
+  users: Array<IUser> = [{
+    "id": 0,
+    "name": "",
+    "username": "",
+    "email": ""
+  }];
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService) {
-    this.users = this.userService.getUsers();
   }
 
   ngOnInit(): void {
-    this.users = this.userService.getUsers();
-
     this.activatedRoute.params.subscribe((params) => {
-      console.log(params['id']);
-      this.user = this.users.filter((u: { id: number, name: string, username: string, email: string }) => {
-        return Number(u['id']) === Number(params['id']);
-      })[0];
-      console.log(this.user);
+      this.userService.getUserByIdViaRest(params['id']).subscribe(
+        user => this.user =user
+      );
     });
 
     this.activatedRoute.queryParams.subscribe((params) => console.log(params));

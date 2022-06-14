@@ -11,8 +11,38 @@
 -->
 
 <h3>User {{ user.id }}</h3>
-<ul>
-  <li>Username: {{ user.username }}</li>
-  <li>Name: {{ user.name }}</li>
-  <li>Email: {{ user.email }}</li>
-</ul>
+<hr>
+<section>
+  <b>Basic Info</b>
+  <br>
+  Username: {{ user.username }} <br>
+  Name: {{ user.name }} <br>
+</section>
+<hr>
+<section>
+  <b>Address</b>
+  <br>
+  Street: {{ user.address?.street }} <br>
+  Suite: {{ user.address?.suite }} <br>
+  City: {{ user.address?.city }} <br>
+  Zipcode: {{ user.address?.zipcode }} <br>
+  Latitude: {{ user.address?.geo?.lat }} <br>
+  Longitude: {{ user.address?.geo?.lng }} <br>
+</section>
+<hr>
+<section>
+  <b>Contact</b>
+  <br>
+  Email: {{ user.email }} <br>
+  Phone: {{ user.phone }} <br>
+  Website: {{ user.website }} <br>
+</section>
+<hr>
+<section>
+  <b>Company</b>
+  <br>
+  Name: {{ user.company?.name }} <br>
+  Catch Phrase: {{ user.company?.catchPhrase }} <br>
+  Bs: {{ user.company?.bs }} <br>
+</section>
+
