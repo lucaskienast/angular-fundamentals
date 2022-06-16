@@ -45,4 +45,30 @@
   Catch Phrase: {{ user.company?.catchPhrase }} <br>
   Bs: {{ user.company?.bs }} <br>
 </section>
+<hr>
+<section>
+  <button class="btn btn-success"
+          (click)="createUser()">
+    Create User
+  </button>
+  <button class="btn btn-primary"
+          (click)="updateUser()">
+    Update User
+  </button>
+  <button class="btn btn-danger"
+          (click)="deleteUser()">
+    Delete User
+  </button>
+  <button class="btn btn-warning"
+          (click)="getUserPosts()">
+    Get Posts By User
+  </button>
+</section>
+<hr>
+<section>
+  <b>Posts</b>
+  <pre>
+    {{ posts | json }}
+  </pre>
+</section>
 

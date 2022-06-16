@@ -8,11 +8,13 @@ import {UserComponent} from "./components/users/user/user.component";
 import {PlaceholderComponent} from "./components/placeholder/placeholder.component";
 import {AuthGuard} from "./guards/auth/auth.guard";
 import {ConfirmationGuard} from "./guards/confirmation/confirmation.guard";
+import {ParentComponent} from "./components/parent/parent.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'blog', component: BlogComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutComponent, canDeactivate: [ConfirmationGuard] },
+  { path: 'parent', component: ParentComponent },
   { path: 'users',
     component: UsersComponent,
     canActivateChild: [AuthGuard],

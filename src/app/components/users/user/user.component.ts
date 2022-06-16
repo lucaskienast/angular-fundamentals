@@ -36,6 +36,8 @@ export class UserComponent implements OnInit {
 
   isOpen = true;
 
+  posts: any = [];
+
   user: IUser = {
     "id": 0,
     "name": "",
@@ -66,6 +68,42 @@ export class UserComponent implements OnInit {
 
   toggle(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  createUser(): void {
+    this.userService.createUser(this.user).subscribe(
+      user => alert(`A new user was created with id: ${user.id}`),
+      err => alert(`There was an error: ${err}`),
+      () => alert(`Creation of user completed`)
+    );
+  }
+
+  updateUser(): void {
+    this.user.name = "Sam Wilson";
+    this.user.email = "sam.wilson@mail.com";
+    this.userService.updateUser(this.user).subscribe(
+      user => alert(`The user with id: ${user.id} was updated`),
+      err => alert(`There was an error: ${err}`),
+      () => alert(`Update of user completed`)
+    );
+  }
+
+  deleteUser(): void {
+    this.userService.deleteUser(this.user.id).subscribe(
+      user => alert(`The user with id: ${this.user.id} was deleted`),
+      err => alert(`There was an error: ${err}`),
+      () => alert(`Deletion of user completed`)
+    );
+  }
+
+  getUserPosts(): void {
+    this.userService.getUserPosts(this.user.id).subscribe(
+      posts => {this.posts = posts;
+        alert(`${posts.length} posts of the user with id: ${this.user.id} were fetched`);
+      },
+      err => alert(`There was an error: ${err}`),
+      () => alert(`Fetching of user posts completed`)
+    );
   }
 
 }

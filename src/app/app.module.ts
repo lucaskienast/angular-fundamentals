@@ -28,6 +28,9 @@ import { UserRowComponent } from './components/users/user-row/user-row.component
 import { PlaceholderComponent } from './components/placeholder/placeholder.component';
 import {UserService} from "./services/user/user.service";
 import {HttpClientModule} from "@angular/common/http";
+import { ParentComponent } from './components/parent/parent.component';
+import { OneComponent } from './components/one/one.component';
+import { TwoComponent } from './components/two/two.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import {HttpClientModule} from "@angular/common/http";
     BlogComponent,
     HeaderComponent,
     UserRowComponent,
-    PlaceholderComponent
+    PlaceholderComponent,
+    ParentComponent,
+    OneComponent,
+    TwoComponent
   ],
   imports: [
     BrowserModule,
