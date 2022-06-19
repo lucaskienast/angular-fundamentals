@@ -9,66 +9,66 @@
 </div>
 </div>
 -->
-
-<h3>User {{ user.id }}</h3>
-<hr>
-<section>
-  <b>Basic Info</b>
-  <br>
-  Username: {{ user.username }} <br>
-  Name: {{ user.name }} <br>
-</section>
-<hr>
-<section>
-  <b>Address</b>
-  <br>
-  Street: {{ user.address?.street }} <br>
-  Suite: {{ user.address?.suite }} <br>
-  City: {{ user.address?.city }} <br>
-  Zipcode: {{ user.address?.zipcode }} <br>
-  Latitude: {{ user.address?.geo?.lat }} <br>
-  Longitude: {{ user.address?.geo?.lng }} <br>
-</section>
-<hr>
-<section>
-  <b>Contact</b>
-  <br>
-  Email: {{ user.email }} <br>
-  Phone: {{ user.phone }} <br>
-  Website: {{ user.website }} <br>
-</section>
-<hr>
-<section>
-  <b>Company</b>
-  <br>
-  Name: {{ user.company?.name }} <br>
-  Catch Phrase: {{ user.company?.catchPhrase }} <br>
-  Bs: {{ user.company?.bs }} <br>
-</section>
-<hr>
-<section>
-  <button class="btn btn-success"
-          (click)="createUser()">
-    Create User
-  </button>
-  <button class="btn btn-primary"
-          (click)="updateUser()">
-    Update User
-  </button>
-  <button class="btn btn-danger"
-          (click)="deleteUser()">
-    Delete User
-  </button>
-  <button class="btn btn-warning"
-          (click)="getUserPosts()">
-    Get Posts By User
-  </button>
-</section>
-<hr>
-<section>
-  <b>Posts</b>
-  <pre>
+<div *ngIf="user">
+  <h3>User {{ user.id }}</h3>
+  <hr>
+  <section>
+    <b>Basic Info</b>
+    <br>
+    Username: {{ user.username }} <br>
+    Name: {{ user.name }} <br>
+  </section>
+  <hr>
+  <section>
+    <b>Address</b>
+    <br>
+    Street: {{ user.address?.street }} <br>
+    Suite: {{ user.address?.suite }} <br>
+    City: {{ user.address?.city }} <br>
+    Zipcode: {{ user.address?.zipcode }} <br>
+    Latitude: {{ user.address?.geo?.lat }} <br>
+    Longitude: {{ user.address?.geo?.lng }} <br>
+  </section>
+  <hr>
+  <section>
+    <b>Contact</b>
+    <br>
+    Email: <a href="{{ user.email | appendor : 'pre' : 'mailto://' }}">{{ user.email }}</a><br>
+    Phone: <a href="{{ user.phone | appendor : 'pre' : 'tel://' }}">{{ user.phone }}</a><br>
+    Website: {{ user.website }} <br>
+  </section>
+  <hr>
+  <section>
+    <b>Company</b>
+    <br>
+    Name: {{ user.company?.name }} <br>
+    Catch Phrase: {{ user.company?.catchPhrase }} <br>
+    Bs: {{ user.company?.bs }} <br>
+  </section>
+  <hr>
+  <section>
+    <button class="btn btn-success"
+            (click)="createUser()">
+      Create User
+    </button>
+    <button class="btn btn-primary"
+            (click)="updateUser()">
+      Update User
+    </button>
+    <button class="btn btn-danger"
+            (click)="deleteUser()">
+      Delete User
+    </button>
+    <button class="btn btn-warning"
+            (click)="getUserPosts()">
+      Get Posts By User
+    </button>
+  </section>
+  <hr>
+  <section>
+    <b>Posts</b>
+    <pre>
     {{ posts | json }}
   </pre>
-</section>
-
+  </section>
+</div>

@@ -19,11 +19,16 @@ export class UserService {
       "id": 0,
       "name": "",
       "username": "",
-      "email": ""
+      "email": "",
+      "phone": ""
     }
   ];
 
   constructor(private httpClient: HttpClient) { }
+
+  addUser(user: IUser): void {
+    this.users.push(user);
+  }
 
   getProp(): string {
     return this._prop;

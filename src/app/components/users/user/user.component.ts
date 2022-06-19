@@ -42,14 +42,16 @@ export class UserComponent implements OnInit {
     "id": 0,
     "name": "",
     "username": "",
-    "email": ""
+    "email": "",
+    "phone": ""
   };
 
   users: Array<IUser> = [{
     "id": 0,
     "name": "",
     "username": "",
-    "email": ""
+    "email": "",
+    "phone": ""
   }];
 
   constructor(private activatedRoute: ActivatedRoute,

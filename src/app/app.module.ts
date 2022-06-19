@@ -15,7 +15,7 @@ import { PropertyBindingsComponent } from './components/bindings/property-bindin
 import { EventBindingComponent } from './components/bindings/event-binding/event-binding.component';
 import { CounterActionsComponent } from './components/counter-actions/counter-actions.component';
 import { HelloComponent } from './components/hello/hello.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AttributeBindingComponent } from './components/bindings/attribute-binding/attribute-binding.component';
 import { ClassBindingComponent } from './components/bindings/class-binding/class-binding.component';
 import { StyleBindingComponent } from './components/bindings/style-binding/style-binding.component';
@@ -31,6 +31,15 @@ import {HttpClientModule} from "@angular/common/http";
 import { ParentComponent } from './components/parent/parent.component';
 import { OneComponent } from './components/one/one.component';
 import { TwoComponent } from './components/two/two.component';
+import { BuiltInStrDirComponent } from './components/built-in-str-dir/built-in-str-dir.component';
+import { BuiltInAttrDirComponent } from './components/built-in-attr-dir/built-in-attr-dir.component';
+import { ChangeCaseDirective } from './directives/change-case.directive';
+import { DirectiveHostComponent } from './components/directive-host/directive-host.component';
+import { UnlessDirective } from './directives/unless.directive';
+import { AppendorPipe } from './pipes/appendor/appendor.pipe';
+import { FilterPipe } from './pipes/filter/filter.pipe';
+import { NewUserComponent } from './components/new-user/new-user.component';
+import { NewUserReactiveComponent } from './components/new-user-reactive/new-user-reactive.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +65,16 @@ import { TwoComponent } from './components/two/two.component';
     PlaceholderComponent,
     ParentComponent,
     OneComponent,
-    TwoComponent
+    TwoComponent,
+    BuiltInStrDirComponent,
+    BuiltInAttrDirComponent,
+    ChangeCaseDirective,
+    DirectiveHostComponent,
+    UnlessDirective,
+    AppendorPipe,
+    FilterPipe,
+    NewUserComponent,
+    NewUserReactiveComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +83,8 @@ import { TwoComponent } from './components/two/two.component';
     BrowserAnimationsModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [],
   providers: [UserService],
