@@ -7,6 +7,11 @@
              type="text"
              formControlName="name"
              class="form-control">
+      <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid"
+        class="alert alert-danger">
+        <!--<p *ngIf="userForm.get('name')?.errors">Name is invalid</p>-->
+        <p *ngIf="name?.errors">Name is invalid</p>
+      </div>
     </div>
     <div class="form-group">
       <label for="username">Username</label>
@@ -14,6 +19,11 @@
              type="text"
              formControlName="username"
              class="form-control">
+      <div *ngIf="userForm.get('username')?.touched && userForm.get('username')?.invalid"
+           class="alert alert-danger">
+        <!--<p *ngIf="userForm.get('name')?.errors">Name is invalid</p>-->
+        <p *ngIf="username?.errors">Username is invalid</p>
+      </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
@@ -108,6 +118,31 @@
                class="form-control">
       </div>
     </fieldset>
+    <fieldset>
+      <legend>
+        Hobbies |
+        <button class="btn btn-primary"
+                (click)="addHobby()">
+          Add
+        </button>
+      </legend>
+      <div *ngFor="let hobbies of hobbies.controls; let i = index"
+           class="input-group">
+        <input type="text"
+               class="form-control"
+               [formControlName]="i"
+               placeholder="Hobby">
+        <button class="btn btn-danger"
+                (click)="deleteHobby(i)">
+          Remove
+        </button>
+      </div>
+    </fieldset>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button"
+            (click)="resetForm()"
+            class="btn btn-warning">
+      Reset
+    </button>
   </form>
 </div>

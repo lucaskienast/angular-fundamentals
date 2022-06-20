@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {CustomValidations} from "../../classes/custom-validations";
 
 @Component({
   selector: 'app-new-user-reactive',
@@ -10,10 +11,26 @@ export class NewUserReactiveComponent implements OnInit {
 
   userForm: FormGroup;
 
+  get name(): FormControl {
+    return <FormControl>this.userForm.get('name');
+  }
+
+  get username(): FormControl {
+    return <FormControl>this.userForm.get('username');
+  }
+
+  get hobbies(): FormArray {
+    return <FormArray>this.userForm.get('hobbies');
+  }
+
   constructor() {
     this.userForm = new FormGroup({
-      name: new FormControl('John Doe'),
-      username: new FormControl('johndoe'),
+      name: new FormControl('John Doe', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern("John Doe")
+      ]),
+      username: new FormControl('johndoe', CustomValidations.unique /*CustomValidations.asyncUnique*/),
       email: new FormControl('john@doe.com'),
       address: new FormGroup({
         street: new FormControl('Main Street 11'),
@@ -31,7 +48,8 @@ export class NewUserReactiveComponent implements OnInit {
         companyName: new FormControl('Johns Doe'),
         catchPhrase: new FormControl('Get John Doe at Johns Doe'),
         companyBs: new FormControl('This is the business...')
-      })
+      }),
+      hobbies: new FormArray([])
     });
   }
 
@@ -40,6 +58,18 @@ export class NewUserReactiveComponent implements OnInit {
 
   submit(): void {
     console.log("Form submitted!");
+  }
+
+  addHobby(): void {
+    (<FormArray>this.userForm.get("hobbies")).push(new FormControl(""));
+  }
+
+  deleteHobby(index: number): void {
+    (<FormArray>this.userForm.get("hobbies")).removeAt(index);
+  }
+
+  resetForm(): void {
+    this.userForm.reset();
   }
 
 }
